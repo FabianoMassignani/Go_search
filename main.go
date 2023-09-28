@@ -1,8 +1,6 @@
 package main
 
 import (
-	"os"
-
 	"github.com/gofiber/fiber"
 	"github.com/gofiber/fiber/middleware"
 
@@ -22,12 +20,10 @@ func main() {
 
 	grp := app.Group("api")
 	grp.Get("/1337x", controller.Controller1337x)
-	grp.Get("/1337x_mg", controller.Controller1337xMg)
 	grp.Get("/eztv", controller.EztvController)
 	grp.Get("/horriblesubs", controller.HorriblesubsController)
 	grp.Get("/nyaa", controller.NyaaController)
 	grp.Get("/kickass", controller.KickassController)
-	grp.Get("/kickass_mg", controller.KickassMgController)
 	grp.Get("/limetorrents", controller.LimetorrentsController)
 	grp.Get("/thepiratebay", controller.PirateBayController)
 	grp.Get("/torrentdownloads", controller.TorrentdownloadsController)
@@ -40,7 +36,7 @@ func main() {
 	grp.Get("/appversion", controller.AppUpdateController)
 	grp.Get("/zooqle", controller.ZooqleController)
 
-	port := os.Getenv("PORT")
+	port := "8080"
 	app.Settings.CaseSensitive = true
 	app.Settings.StrictRouting = true
 	app.Listen(":" + port)
